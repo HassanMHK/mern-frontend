@@ -5,6 +5,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Tools
 react-router-dom v6.15.0
 
+## Development
+Added "proxy" for the backend server in package to json
 
 ## Available Scripts
 

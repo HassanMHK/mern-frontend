@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -10,4 +11,178 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.app {
+  background-color: rgb(237, 240, 244);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  position: relative;
+}
+/* Navbar */
+.nav-container {
+  width: 100%;
+  max-width: 1400px;
+}
+.first-navbar{
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  background-color: rgb(28, 28, 28);
+}
+.second-navbar {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  background-color: rgb(200, 200, 200);
+}
+.nav-title {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 10px;
+}
+.nav-title h2{
+  margin: 0;
+}
+.nav-container a {
+  text-decoration: none;
+  color: rgb(28, 28, 28);
+}
+/* pages */
+.page {
+  width: 100%;
+  max-width: 1400px;
+}
+.home-container {
+  width: 100%;
+  background-color: rgb(235, 235, 235);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* new post */
+.new-post{
+  width: 90%;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+.new-post form{
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.new-post label{
+  width: 100%;
+}
+.new-post-title{
+  width: 100%;
+  height: 50px;
+  margin-top: 10px;
+  padding-left: 10px;
+  font-size: 19px;
+}
+.new-post-text{
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  width: 100%;
+  height: 200px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  padding-top: 10px;
+  font-size: 18px;
+  resize: none;
+}
+.new-post-button {
+  width: 300px;
+  height: 40px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(245, 160, 15);
+  color: rgb(255, 255, 255);
+}
+/* posts list */
+.posts-list {
+  width: 90%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 50px;
+}
+.post-card {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(205, 205, 205);
+  border-radius: 5px;
+  padding: 15px 15px 40px 15px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  position: relative;
+}
+.post-text {
+  margin: 0;
+}
+.post-delete-btn {
+  width: 30px;
+  height: 30px;
+  color: rgb(190, 0, 0);
+  background-color: rgb(220, 220, 220);
+  cursor: pointer;
+  border-radius: 0px;
+  border: none;
+  font-size: 25px;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 4px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 12px 12px 0 0;
+}
+.post-delete-btn a {
+  padding: 0;
+  margin: 0;
+}
+.post-delete-btn:hover {
+  color: rgb(220, 220, 220);
+  background-color: rgb(170, 0, 0);
+}
+/* footer */
+.footer {
+  background-color: rgb(28, 28, 28);
+  height: 40px;
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+}
+.footer h3{
+  color: rgb(255, 255, 255);
 }
