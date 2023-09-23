@@ -1,21 +1,24 @@
 import { useState, useEffect } from "react";
-
+import { usePostsContext } from "../hooks/usePostsContext";
 import Post from '../components/post'
 
 const Home = () => {
+    const {posts, dispatch} = usePostsContext();
     const [inputs, setInputs] = useState("");
-    const [postsData, setPostsData] = useState(null);
-    const [newData, setNewData] = useState(false);
 
     useEffect(() => {
         const getPosts = async () => {
             const response = await fetch('/api/posts');
             const json = await response.json();
-            setPostsData(json);
+            // setPostsData(json);
+
+            if(response.ok){
+                // setPostsData(json);
+                dispatch({type: 'SET_POSTS', payload: json});
+            }
         }
         getPosts();
-        setNewData(false);
-    }, [newData]);
+    }, []);
 
     const handleChange = (event) => {
         const name = event.target.name;
@@ -26,32 +29,19 @@ const Home = () => {
     
     const newPost = async (event) => {
         event.preventDefault();
-        setNewData(true);
-        await fetch('/api/posts',  {
+        const response = await fetch('/api/posts',  {
             method: "POST",
             body: JSON.stringify(inputs),
             headers: {"Content-type": "application/json; charset=UTF-8"}
-        })
-        .then(response => response.json()) 
-        .then(json => console.log(json))
-        .catch(err => console.log(err));
-    }
-
-    const deletePost = async (id) => {
-        postsData.map((post) => {
-            if(post._id === id){
-                console.log("found");
-                setNewData(true);
-                fetch('/api/posts/'+id,  {
-                        method: "DELETE",
-                        body: JSON.stringify(post),
-                        headers: {"Content-type": "application/json; charset=UTF-8"}
-                    })
-                    .then(response => response.json()) 
-                    .then(json => console.log(json))
-                    .catch(err => console.log(err));
-            }
         });
+        const json = await response.json();
+
+        if(!response.ok){
+            console.log(json.error);
+        }
+        if(response.ok){
+            dispatch({type: 'CREATE_POST', payload: json});
+        }
     }
 
     return(
@@ -83,9 +73,9 @@ const Home = () => {
                 </form>
             </div>
             <div className="posts-list">
-                {postsData && postsData.map((post) => {
+                {posts && posts.map((post) => {
                     return(
-                        <Post {...post} key={post._id} del={deletePost} />
+                        <Post {...post} key={post._id} />
                     )
                 })}
                 {/* <div className="post-card">
