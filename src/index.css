@@ -123,6 +123,7 @@ code {
   background-color: rgb(245, 160, 15);
   color: rgb(255, 255, 255);
 }
+
 /* posts list */
 .posts-list {
   width: 90%;
@@ -139,35 +140,119 @@ code {
   margin-bottom: 5px;
   position: relative;
 }
+.post-container {
+  width: 100%;
+  height: 100%;
+}
 .post-text {
   margin: 0;
 }
-.post-delete-btn {
-  width: 30px;
-  height: 30px;
-  color: rgb(190, 0, 0);
-  background-color: rgb(220, 220, 220);
-  cursor: pointer;
-  border-radius: 0px;
-  border: none;
-  font-size: 25px;
-  text-align: center;
-  padding: 0;
-  margin: 0;
+.post-btns {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-bottom: 4px;
   position: absolute;
   right: 0;
   top: 0;
   margin: 12px 12px 0 0;
 }
-.post-delete-btn a {
+.post-btns button {
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 3px;
+  border: none;
+  text-align: center;
+}
+.post-btns button a {
   padding: 0;
   margin: 0;
 }
+.post-edit-btn {
+  width: 35px;
+  color: rgb(0, 0, 0);
+  background-color: rgb(245, 160, 15);
+  font-size: 15px;
+}
+.post-edit-btn:hover {
+  color: rgb(220, 220, 220);
+  background-color: rgb(0, 120, 10);
+}
+.post-delete-btn {
+  width: 25px;
+  color: rgb(190, 0, 0);
+  background-color: rgb(220, 220, 220);
+  font-size: 25px;
+  padding-bottom: 6px;
+  margin-left: 7px;
+}
 .post-delete-btn:hover {
+  color: rgb(220, 220, 220);
+  background-color: rgb(170, 0, 0);
+}
+
+/* edit post */
+.edit-post-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.edit-post-title{
+  width: 100%;
+  height: 50px;
+  margin-top: 10px;
+  padding-left: 10px;
+  font-size: 19px;
+}
+.edit-post-text{
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  width: 100%;
+  height: 200px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  padding-top: 10px;
+  font-size: 18px;
+  resize: none;
+}
+.edit-btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.edit-btns button {
+  width: 200px;
+  height: 40px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+.edit-post-button {
+  background-color: rgb(245, 160, 15);
+  color: rgb(255, 255, 255);
+  margin-right: 5px;
+}
+.edit-post-button:hover {
+  color: rgb(220, 220, 220);
+  background-color: rgb(0, 120, 10);
+}
+.edit-cancel-button {
+  background-color: rgb(154, 154, 154);
+  color: rgb(255, 255, 255);
+  margin-left: 5px;
+}
+.edit-cancel-button:hover {
   color: rgb(220, 220, 220);
   background-color: rgb(170, 0, 0);
 }

@@ -17,8 +17,10 @@ export const postsReducer = (state,action) => {
                 posts: state.posts.filter((post) => post._id !== action.payload._id)
             }
         case 'UPDATE_POST':
+        console.log(action);
+        // console.log(state);
         return {
-            posts: [action.payload, ...state.posts]
+            posts: [action.payload, ...state.posts.filter((post) => post._id !== action.payload._id)]
         }
         default:
             return state

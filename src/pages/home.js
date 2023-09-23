@@ -4,7 +4,7 @@ import Post from '../components/post'
 
 const Home = () => {
     const {posts, dispatch} = usePostsContext();
-    const [inputs, setInputs] = useState("");
+    const [inputs, setInputs] = useState({title: "", text: ""});
 
     useEffect(() => {
         const getPosts = async () => {
@@ -41,6 +41,7 @@ const Home = () => {
         }
         if(response.ok){
             dispatch({type: 'CREATE_POST', payload: json});
+            setInputs({title: "", text: ""});
         }
     }
 
