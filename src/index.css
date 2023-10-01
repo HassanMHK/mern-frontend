@@ -1,19 +1,21 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+
+:root {
+  --primary: #f5a00f;
+  --error: #e7195a;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+body {
+  background-color: rgb(237, 240, 244);
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
 }
 .app {
-  background-color: rgb(237, 240, 244);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -32,7 +34,51 @@ code {
   display: flex;
   align-items: center;
   justify-content: start;
-  background-color: rgb(28, 28, 28);
+  background-color: rgb(91, 91, 91);
+  position: relative;
+}
+.first-navbar a{
+  text-decoration: none;
+  font-weight: bold;
+}
+.nav-logo {
+  margin-left: 10px;
+}
+.nav-logo a {
+  color: rgb(245, 160, 15);
+  font-size: 20px;
+}
+.nav-login-signup {
+  position: absolute;
+  right: 0;
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav-login-signup a {
+  color: rgb(215, 215, 215);
+  padding: 5px;
+}
+.user-logout-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav-logout {
+  height: 30px;
+  background-color: #fff;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  padding: 5px 5px;
+  border-radius: 4px;
+  font-family: "Poppins";
+  cursor: pointer;
+  font-size: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
 }
 .second-navbar {
   height: 50px;
@@ -52,18 +98,15 @@ code {
 .nav-title h2{
   margin: 0;
 }
-.nav-container a {
-  text-decoration: none;
-  color: rgb(28, 28, 28);
-}
 /* pages */
 .page {
   width: 100%;
   max-width: 1400px;
+  min-height: 87vh;
+  background-color: rgb(235, 235, 235);
 }
 .home-container {
   width: 100%;
-  background-color: rgb(235, 235, 235);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -77,8 +120,11 @@ code {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 20px;
   border-radius: 5px;
+}
+.new-post h2{
+  margin: 25px 0 15px 0;
 }
 .new-post form{
   width: 90%;
@@ -111,7 +157,7 @@ code {
   resize: none;
 }
 .new-post-button {
-  width: 300px;
+  width: 250px;
   height: 40px;
   margin-top: 10px;
   margin-bottom: 20px;
@@ -120,8 +166,11 @@ code {
   cursor: pointer;
   border: none;
   border-radius: 5px;
-  background-color: rgb(245, 160, 15);
+  background-color: var(--primary);
   color: rgb(255, 255, 255);
+}
+.new-post-button:hover {
+  background-color: rgb(248, 174, 45);
 }
 
 /* posts list */
@@ -166,14 +215,14 @@ code {
   border: none;
   text-align: center;
 }
-.post-btns button a {
+.post-btns button span {
   padding: 0;
   margin: 0;
 }
 .post-edit-btn {
   width: 35px;
   color: rgb(0, 0, 0);
-  background-color: rgb(245, 160, 15);
+  background-color: var(--primary);
   font-size: 15px;
 }
 .post-edit-btn:hover {
@@ -185,7 +234,6 @@ code {
   color: rgb(190, 0, 0);
   background-color: rgb(220, 220, 220);
   font-size: 25px;
-  padding-bottom: 6px;
   margin-left: 7px;
 }
 .post-delete-btn:hover {
@@ -239,7 +287,7 @@ code {
   border-radius: 5px;
 }
 .edit-post-button {
-  background-color: rgb(245, 160, 15);
+  background-color: var(--primary);
   color: rgb(255, 255, 255);
   margin-right: 5px;
 }
@@ -270,4 +318,61 @@ code {
 }
 .footer h3{
   color: rgb(255, 255, 255);
+  font-size: 15px;
+}
+
+/* Register & Login */
+.register-container, .login-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.register, .login {
+  width: 100%;
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 4px;
+}
+.form-inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.form-inputs input {
+  margin-bottom: 15px;
+  padding-left: 7px;
+  height: 25px;
+}
+.form-title, .form-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0 20px 0;
+}
+.form-title h1{
+  font-weight: bold;
+}
+.form-buttons button {
+  width: 200px;
+  height: 35px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--primary)
+}
+.form-buttons button:hover {
+  background-color: rgb(248, 174, 45);
+}
+.form-error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form-error p {
+  color: var(--error);
 }
