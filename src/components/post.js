@@ -1,14 +1,19 @@
 import { usePostsContext } from "../hooks/usePostsContext";
 import { useState } from "react";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 const Post = (props) => {
     const { title, text, _id } = props;
     const {dispatch} = usePostsContext();
     const [inputs, setInputs] = useState({title: "", text: ""});
     const [edited, setEdited] = useState(false);
+    const { user } = useAuthContext();
 
     const deletePost = async () => {
 
+        if(!user){
+            return
+        }
         const response = await fetch('/api/posts/'+_id,  {
             method: "DELETE",
         });
@@ -24,6 +29,11 @@ const Post = (props) => {
     }
 
     const editPost = async () => {
+
+        if(!user){
+            return
+        }
+
         if(inputs.title === ""){
             inputs.title = title;
         }
@@ -62,8 +72,8 @@ const Post = (props) => {
                 <h3>{title}</h3>
                 <p className="post-text">{text}</p>
                 <div className="post-btns">
-                    <button className="post-edit-btn" onClick={editPostShow}><a>Edit</a></button>
-                    <button className="post-delete-btn" onClick={deletePost}><a>x</a></button>
+                    <button className="post-edit-btn" onClick={editPostShow}><span className="material-symbols-outlined">edit_square</span></button>
+                    <button className="post-delete-btn" onClick={deletePost}><span className="material-symbols-outlined">delete</span></button>
                 </div>
             </div>}
             {edited && <div className="edit-post-container">
